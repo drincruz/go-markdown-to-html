@@ -3,6 +3,8 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io/ioutil"
+	"log"
 	"os"
 
 	"github.com/gomarkdown/markdown"
@@ -22,10 +24,19 @@ func readStdin() {
 	}
 }
 
+func readFile() []byte {
+	data, err := ioutil.ReadFile(os.Args[1])
+	if err != nil {
+		log.Fatal(err)
+	}
+	return data
+}
+
 func main() {
 	var err error
 	var output []byte
-	output = MarkdownToHTML([]byte("# This is a title `right` *ok* _really_?"))
+	var data []byte = readFile()
+	output = MarkdownToHTML(data)
 	var out *os.File
 	out = os.Stdout
 	if _, err = out.Write(output); err != nil {
