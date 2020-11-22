@@ -1,4 +1,4 @@
-module go-markdown-to-html/main
+module github.com/drincruz/go-markdown-to-html
 
 go 1.14
 
