@@ -22,7 +22,7 @@ jobs:
         run: |
           go build -o go-markdown-to-html cmd/main.go
           mkdir -p dist
-          ./bin/go_build.sh
+          ./bin/build_pages.sh
           zip -r artifact dist/
       - name: Create Release
         id: create_release
