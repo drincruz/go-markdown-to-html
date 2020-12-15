@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"bytes"
 	"fmt"
 	"html/template"
@@ -34,13 +33,6 @@ func MarkdownToHTML(md []byte) []byte {
 	return markdown.ToHTML(md, nil, nil)
 }
 
-func readStdin() {
-	scanner := bufio.NewScanner(os.Stdin)
-	for scanner.Scan() {
-		fmt.Println(MarkdownToHTML(scanner.Bytes()))
-	}
-}
-
 func readHeader() []byte {
 	data, err := ioutil.ReadFile("bootstrap/clean-blog/header.html.tpl")
 	if err != nil {
@@ -68,8 +60,8 @@ func readFile() []byte {
 func header() Header {
 	return Header{
 		Title:           "drincruz.com Blog",
-		ContentTitle:    "This is the main content",
-		ContentSubtitle: "and this would be a subtitle",
+		ContentTitle:    os.Args[2],
+		ContentSubtitle: os.Args[3],
 	}
 }
 
