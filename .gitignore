@@ -16,3 +16,6 @@
 
 # Build output directories
 dist/
+
+# Ignore go-markdown-to-html binary
+go-markdown-to-html
