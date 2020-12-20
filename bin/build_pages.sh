@@ -10,4 +10,5 @@ function to_html () {
 }
 
 to_html markdown/test.markdown 'This is a title' 'And a subtitle' dist/test.html
+to_html markdown/index.markdown 'Greetings!' 'My name is Adrian' dist/index.html
 to_html markdown/about.markdown 'About Me' 'So who am I?' dist/about.html
