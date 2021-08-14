@@ -22,3 +22,8 @@ to_html markdown/2013/10/10/yes-this-is-bootstrap.markdown \
   'Yes, This is Bootstrap' \
   'Updated, Bootstrap (still)' \
   dist/2013/10/10/yes-this-is-bootstrap.html
+mkdir_dist_path dist/2013/10/11
+to_html markdown/2013/10/11/interview-with-a-stranger.markdown \
+  'Interview With a Stranger' \
+  '' \
+  dist/2013/10/11/interview-with-a-stranger.html
