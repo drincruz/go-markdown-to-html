@@ -49,7 +49,7 @@ func readFile() []byte {
 
 func header() Header {
 	return Header{
-		Title:           "drincruz.com Blog",
+		Title:           getTitle(),
 		ContentTitle:    os.Args[2],
 		ContentSubtitle: os.Args[3],
 		RelativePath:    relativePath(),
@@ -68,6 +68,13 @@ func footer() Footer {
 	}
 }
 
+func getTitle() string {
+	if os.Args[2] != "" {
+		return fmt.Sprintf("%s | drincruz.com", os.Args[2])
+	}
+	return "drincruz.com Blog"
+
+}
 func relativePath() string {
 	var path string = os.Args[4]
 	var outputArr []string
