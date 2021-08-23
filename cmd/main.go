@@ -18,6 +18,7 @@ type Header struct {
 	Title           string
 	ContentTitle    string
 	ContentSubtitle string
+	RelativePath    string
 }
 
 // Body is the content of an HTML page.
@@ -26,27 +27,16 @@ type Body struct {
 	Content template.HTML
 }
 
+// Footer is Typical footer Copyright, links, etc.
+type Footer struct {
+	RelativePath string
+}
+
 // MarkdownToHTML transforms markdown to HTML.
 //
 // Takes markdown as a byte array argument, returns a byte array of HTML.
 func MarkdownToHTML(md []byte) []byte {
 	return markdown.ToHTML(md, nil, nil)
-}
-
-func readHeader() []byte {
-	data, err := ioutil.ReadFile("bootstrap/clean-blog/header.html.tpl")
-	if err != nil {
-		log.Fatal(err)
-	}
-	return data
-}
-
-func readFooter() []byte {
-	data, err := ioutil.ReadFile("bootstrap/clean-blog/footer.html.tpl")
-	if err != nil {
-		log.Fatal(err)
-	}
-	return data
 }
 
 func readFile() []byte {
@@ -62,6 +52,7 @@ func header() Header {
 		Title:           "drincruz.com Blog",
 		ContentTitle:    os.Args[2],
 		ContentSubtitle: os.Args[3],
+		RelativePath:    relativePath(),
 	}
 }
 
@@ -69,6 +60,27 @@ func body(body template.HTML) Body {
 	return Body{
 		Content: body,
 	}
+}
+
+func footer() Footer {
+	return Footer{
+		RelativePath: relativePath(),
+	}
+}
+
+func relativePath() string {
+	var path string = os.Args[4]
+	var outputArr []string
+	for i := 1; i < strings.Count(path, "/"); i++ {
+		outputArr = append(outputArr, "../")
+	}
+
+	var output string = strings.Join(outputArr, "")
+
+	if output == "" {
+		return "./"
+	}
+	return output
 }
 
 func main() {
@@ -79,7 +91,10 @@ func main() {
 	var headerStr bytes.Buffer
 	tpl := template.Must(template.ParseFiles("bootstrap/clean-blog/header.html.tpl"))
 	tpl.Execute(&headerStr, header)
-	var footerData = string(readFooter())
+	var footer = footer()
+	var footerStr bytes.Buffer
+	footerTpl := template.Must(template.ParseFiles("bootstrap/clean-blog/footer.html.tpl"))
+	footerTpl.Execute(&footerStr, footer)
 	var content = readFile()
 	var body = body(template.HTML(string(MarkdownToHTML(content))))
 	var contentStr bytes.Buffer
@@ -88,7 +103,7 @@ func main() {
 
 	outputStr.WriteString(headerStr.String())
 	outputStr.WriteString(contentStr.String())
-	outputStr.WriteString(footerData)
+	outputStr.WriteString(footerStr.String())
 
 	fmt.Printf("%s", outputStr.String())
 	var html []byte

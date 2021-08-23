@@ -12,11 +12,11 @@
     <title>{{.Title}}</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{.RelativePath}}vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Custom fonts for this template -->
     <link
-      href="vendor/fontawesome-free/css/all.min.css"
+      href="{{.RelativePath}}vendor/fontawesome-free/css/all.min.css"
       rel="stylesheet"
       type="text/css"
     />
@@ -32,14 +32,14 @@
     />
 
     <!-- Custom styles for this template -->
-    <link href="css/clean-blog.min.css" rel="stylesheet" />
+    <link href="{{.RelativePath}}css/clean-blog.min.css" rel="stylesheet" />
   </head>
 
   <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand" href="index.html">drincruz.com</a>
+        <a class="navbar-brand" href="{{.RelativePath}}index.html">drincruz.com</a>
         <button
           class="navbar-toggler navbar-toggler-right"
           type="button"
@@ -55,13 +55,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="{{.RelativePath}}index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
+              <a class="nav-link" href="{{.RelativePath}}about.html">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+              <a class="nav-link" href="{{.RelativePath}}contact.html">Contact</a>
             </li>
           </ul>
         </div>
@@ -69,7 +69,7 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/about-bg.jpg')">
+    <header class="masthead" style="background-image: url('{{.RelativePath}}img/about-bg.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">

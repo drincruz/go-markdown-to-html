@@ -5,8 +5,8 @@
 MARKDOWN_TO_HTML="go-markdown-to-html"
 
 function to_html () {
-  echo "./${MARKDOWN_TO_HTML} $1 '$2' '$3' > $4";
-  ./${MARKDOWN_TO_HTML} $1 "$2" "$3" > $4
+  echo "./${MARKDOWN_TO_HTML} $1 '$2' '$3' '$4' > $4";
+  ./${MARKDOWN_TO_HTML} $1 "$2" "$3" "$4" > $4
 }
 
 function mkdir_dist_path () {
