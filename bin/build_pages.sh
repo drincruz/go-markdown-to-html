@@ -27,3 +27,8 @@ to_html markdown/2013/10/11/interview-with-a-stranger.markdown \
   'Interview With a Stranger' \
   '' \
   dist/2013/10/11/interview-with-a-stranger.html
+mkdir_dist_path dist/2013/10/16
+to_html markdown/2013/10/16/today-i-learned-bootstrap-has-built-in-code-blocks.markdown \
+  'Today I Learned: Bootstrap Has Built-in Code Blocks' \
+  '' \
+  dist/2013/10/16/today-i-learned-bootstrap-has-built-in-code-blocks.html
