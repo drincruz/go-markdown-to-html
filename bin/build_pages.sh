@@ -37,3 +37,10 @@ to_html markdown/2013/11/15/prepare-for-your-interview.markdown \
   'Prepare for your Interview!' \
   '' \
   dist/2013/11/15/prepare-for-your-interview.html
+mkdir_dist_path dist/2013/12/02
+to_html markdown/2013/12/02/let-a-baby-pick-your-passwords.markdown \
+  'Let a Baby Pick Your Passwords' \
+  '' \
+  dist/2013/12/02/let-a-baby-pick-your-passwords.html
+# One-off for media, but TODO to streamline this process
+cp markdown/2013/12/02/*.png dist/2013/12/02/
