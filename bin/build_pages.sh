@@ -32,3 +32,8 @@ to_html markdown/2013/10/16/today-i-learned-bootstrap-has-built-in-code-blocks.m
   'Today I Learned: Bootstrap Has Built-in Code Blocks' \
   '' \
   dist/2013/10/16/today-i-learned-bootstrap-has-built-in-code-blocks.html
+mkdir_dist_path dist/2013/11/15
+to_html markdown/2013/11/15/prepare-for-your-interview.markdown \
+  'Prepare for your Interview!' \
+  '' \
+  dist/2013/11/15/prepare-for-your-interview.html
