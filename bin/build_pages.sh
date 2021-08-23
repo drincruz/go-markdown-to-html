@@ -44,3 +44,8 @@ to_html markdown/2013/12/02/let-a-baby-pick-your-passwords.markdown \
   dist/2013/12/02/let-a-baby-pick-your-passwords.html
 # One-off for media, but TODO to streamline this process
 cp markdown/2013/12/02/*.png dist/2013/12/02/
+mkdir_dist_path dist/2013/12/09
+to_html markdown/2013/12/09/technical-interview-prep-phone-screen-fun.markdown \
+  'Technical Interview Prep: Phone Screen Fun' \
+  '' \
+  dist/2013/12/09/technical-interview-prep-phone-screen-fun.html
