@@ -50,7 +50,7 @@ to_html markdown/2013/12/09/technical-interview-prep-phone-screen-fun.markdown \
   '' \
   dist/2013/12/09/technical-interview-prep-phone-screen-fun.html
 mkdir_dist_path dist/2013/12/10
-to_html markdown/2013/12/10/how-i-pull-down-my-latest-social-posts-feedmesocial \
+to_html markdown/2013/12/10/how-i-pull-down-my-latest-social-posts-feedmesocial.markdown \
   'How I Pull Down My Latest Social Posts' \
   'feedmesocial' \
   dist/2013/12/10/how-i-pull-down-my-latest-social-posts-feedmesocial.html
