@@ -64,3 +64,8 @@ to_html markdown/2014/01/08/reading-xml-in-python-with-elementtree.markdown \
   'Reading XML in Python with ElementTree' \
   '' \
   dist/2014/01/08/reading-xml-in-python-with-elementtree.html
+mkdir_dist_path dist/2014/02/01
+to_html markdown/2014/02/01/from-initial-commit-to-launch-the-story-of-a-quick-site-launch.markdown \
+  'From Initial Commit to Launch' \
+  'The Story of a Quick Site Launch' \
+  dist/2014/02/01/from-initial-commit-to-launch-the-story-of-a-quick-site-launch.html
