@@ -59,3 +59,8 @@ to_html markdown/2013/12/17/tries-in-python.markdown \
   'Tries in Python' \
   'trie as in Retrieve' \
   dist/2013/12/17/tries-in-python.html
+mkdir_dist_path dist/2014/01/08
+to_html markdown/2014/01/08/reading-xml-in-python-with-elementtree.markdown \
+  'Reading XML in Python with ElementTree' \
+  '' \
+  dist/2014/01/08/reading-xml-in-python-with-elementtree.html
