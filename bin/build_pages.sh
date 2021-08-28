@@ -89,10 +89,10 @@ to_html markdown/2014/07/18/stand-ups-and-bikesheds.markdown \
   '' \
   dist/2014/07/18/stand-ups-and-bikesheds.html
 
-mkdir_dist_path dist/2014/08/14
-to_html markdown/2014/08/14/julython-2014-recap.markdown \
+mkdir_dist_path dist/2014/08/06
+to_html markdown/2014/08/06/julython-2014-recap.markdown \
   'Julython 2014 Recap' \
   '' \
-  dist/2014/08/14/julython-2014-recap.html
+  dist/2014/08/06/julython-2014-recap.html
 # One-off for media, but TODO to streamline this process
-cp markdown/2014/08/14/*.png dist/2014/08/14/
+cp markdown/2014/08/06/*.png dist/2014/08/06/
