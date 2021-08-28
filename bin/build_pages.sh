@@ -82,3 +82,9 @@ to_html markdown/2014/05/07/py-closure-a-python-client-for-closure.markdown \
   'Py-Closure' \
   'A Python Client for Closure' \
   dist/2014/05/07/py-closure-a-python-client-for-closure.html
+
+mkdir_dist_path dist/2014/07/18
+to_html markdown/2014/07/18/stand-ups-and-bikesheds.markdown \
+  'Stand-ups and Bikesheds' \
+  '' \
+  dist/2014/07/18/stand-ups-and-bikesheds.html
