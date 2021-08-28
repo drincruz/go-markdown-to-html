@@ -69,3 +69,10 @@ to_html markdown/2014/02/01/from-initial-commit-to-launch-the-story-of-a-quick-s
   'From Initial Commit to Launch' \
   'The Story of a Quick Site Launch' \
   dist/2014/02/01/from-initial-commit-to-launch-the-story-of-a-quick-site-launch.html
+mkdir_dist_path dist/2014/04/07
+to_html markdown/2014/04/07/silly-bug-fixes.markdown \
+  'Silly Bug Fixes' \
+  '' \
+  dist/2014/04/07/silly-bug-fixes.html
+# One-off for media, but TODO to streamline this process
+cp markdown/2014/04/07/*.png dist/2014/04/07/
