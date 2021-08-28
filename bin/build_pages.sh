@@ -54,3 +54,8 @@ to_html markdown/2013/12/10/how-i-pull-down-my-latest-social-posts-feedmesocial.
   'How I Pull Down My Latest Social Posts' \
   'feedmesocial' \
   dist/2013/12/10/how-i-pull-down-my-latest-social-posts-feedmesocial.html
+mkdir_dist_path dist/2013/12/17
+to_html markdown/2013/12/17/tries-in-python.markdown \
+  'Tries in Python' \
+  'trie as in Retrieve' \
+  dist/2013/12/17/tries-in-python.html
