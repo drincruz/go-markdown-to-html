@@ -76,3 +76,9 @@ to_html markdown/2014/04/07/silly-bug-fixes.markdown \
   dist/2014/04/07/silly-bug-fixes.html
 # One-off for media, but TODO to streamline this process
 cp markdown/2014/04/07/*.png dist/2014/04/07/
+
+mkdir_dist_path dist/2014/05/07
+to_html markdown/2014/05/07/py-closure-a-python-client-for-closure.markdown \
+  'Py-Closure' \
+  'A Python Client for Closure' \
+  dist/2014/05/07/py-closure-a-python-client-for-closure.html
