@@ -138,3 +138,9 @@ to_html markdown/2017/08/19/what-does-fibonacci-look-like-in-elixir.markdown \
   'What Does Fibonacci Look Like in Elixir?' \
   '' \
   dist/2017/08/19/what-does-fibonacci-look-like-in-elixir.html
+
+mkdir_dist_path dist/2018/08/04
+to_html markdown/2018/08/04/three-years-of-searching.markdown \
+  'Three Years of Searching' \
+  '' \
+  dist/2018/08/04/three-years-of-searching.html
