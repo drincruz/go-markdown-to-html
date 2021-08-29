@@ -144,3 +144,11 @@ to_html markdown/2018/08/04/three-years-of-searching.markdown \
   'Three Years of Searching' \
   '' \
   dist/2018/08/04/three-years-of-searching.html
+
+mkdir_dist_path dist/2019/03/30
+to_html markdown/2019/03/30/distance-running-and-software-engineering.markdown \
+  'Distance Running and Software Engineering' \
+  '' \
+  dist/2019/03/30/distance-running-and-software-engineering.html
+# One-off for media, but TODO to streamline this process
+cp markdown/2019/03/30/*.png dist/2019/03/30/
