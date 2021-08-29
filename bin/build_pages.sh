@@ -114,3 +114,9 @@ to_html markdown/2015/05/31/intro-to-building-out-data-pipelines-with-python-and
   'Intro to Building Out Data Pipelines' \
   'With Python and Luigi' \
   dist/2015/05/31/intro-to-building-out-data-pipelines-with-python-and-luigi.html
+
+mkdir_dist_path dist/2016/03/21
+to_html markdown/2016/03/21/writing-out-files-python-unicodeencodeerror-woes.markdown \
+  'Writing Out Files & Python UnicodeEncodeError Woes' \
+  '' \
+  dist/2016/03/21/writing-out-files-python-unicodeencodeerror-woes.html
