@@ -120,3 +120,9 @@ to_html markdown/2016/03/21/writing-out-files-python-unicodeencodeerror-woes.mar
   'Writing Out Files & Python UnicodeEncodeError Woes' \
   '' \
   dist/2016/03/21/writing-out-files-python-unicodeencodeerror-woes.html
+
+mkdir_dist_path dist/2016/07/31
+to_html markdown/2016/07/31/always-a-student-always-learning.markdown \
+  'Always a Student, Always Learning' \
+  '' \
+  dist/2016/07/31/always-a-student-always-learning.html
