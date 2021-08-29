@@ -132,3 +132,9 @@ to_html markdown/2017/03/14/elixir-conditionals-with-function-signatures.markdow
   'Elixir Conditionals with Function Signatures' \
   '' \
   dist/2017/03/14/elixir-conditionals-with-function-signatures.html
+
+mkdir_dist_path dist/2017/08/19
+to_html markdown/2017/08/19/what-does-fibonacci-look-like-in-elixir.markdown \
+  'What Does Fibonacci Look Like in Elixir?' \
+  '' \
+  dist/2017/08/19/what-does-fibonacci-look-like-in-elixir.html
