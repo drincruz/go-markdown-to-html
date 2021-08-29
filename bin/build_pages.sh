@@ -152,3 +152,9 @@ to_html markdown/2019/03/30/distance-running-and-software-engineering.markdown \
   dist/2019/03/30/distance-running-and-software-engineering.html
 # One-off for media, but TODO to streamline this process
 cp markdown/2019/03/30/*.png dist/2019/03/30/
+
+mkdir_dist_path dist/2019/05/27
+to_html markdown/2019/05/27/soft-skills-for-software-engineers.markdown \
+  'Soft Skills for Software Engineers' \
+  '' \
+  dist/2019/05/27/soft-skills-for-software-engineers.html
