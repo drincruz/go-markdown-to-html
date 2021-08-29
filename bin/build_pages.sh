@@ -102,3 +102,9 @@ to_html markdown/2014/11/03/fighting-procrastination-with-time-management.markdo
   'Fighting Procrastination With Time Management' \
   '' \
   dist/2014/11/03/fighting-procrastination-with-time-management.html
+
+mkdir_dist_path dist/2015/04/06
+to_html markdown/2015/04/06/squashing-git-commits-is-great-code-etiquette.markdown \
+  'Squashing git Commits is Great Code is Great Code Etiquette' \
+  '' \
+  dist/2015/04/06/squashing-git-commits-is-great-code-etiquette.html
