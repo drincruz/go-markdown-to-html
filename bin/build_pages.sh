@@ -96,3 +96,9 @@ to_html markdown/2014/08/06/julython-2014-recap.markdown \
   dist/2014/08/06/julython-2014-recap.html
 # One-off for media, but TODO to streamline this process
 cp markdown/2014/08/06/*.png dist/2014/08/06/
+
+mkdir_dist_path dist/2014/11/03
+to_html markdown/2014/11/03/fighting-procrastination-with-time-management.markdown \
+  'Fighting Procrastination With Time Management' \
+  '' \
+  dist/2014/11/03/fighting-procrastination-with-time-management.html
