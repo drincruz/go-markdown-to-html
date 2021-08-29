@@ -126,3 +126,9 @@ to_html markdown/2016/07/31/always-a-student-always-learning.markdown \
   'Always a Student, Always Learning' \
   '' \
   dist/2016/07/31/always-a-student-always-learning.html
+
+mkdir_dist_path dist/2017/03/14
+to_html markdown/2017/03/14/elixir-conditionals-with-function-signatures.markdown \
+  'Elixir Conditionals with Function Signatures' \
+  '' \
+  dist/2017/03/14/elixir-conditionals-with-function-signatures.html
