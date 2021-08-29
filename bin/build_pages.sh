@@ -108,3 +108,9 @@ to_html markdown/2015/04/06/squashing-git-commits-is-great-code-etiquette.markdo
   'Squashing git Commits is Great Code Etiquette' \
   '' \
   dist/2015/04/06/squashing-git-commits-is-great-code-etiquette.html
+
+mkdir_dist_path dist/2015/05/31
+to_html markdown/2015/05/31/intro-to-building-out-data-pipelines-with-python-and-luigi.markdown \
+  'Intro to Building Out Data Pipelines' \
+  'With Python and Luigi' \
+  dist/2015/05/31/intro-to-building-out-data-pipelines-with-python-and-luigi.html
