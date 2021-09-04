@@ -4,4 +4,4 @@
 
 ## Latests Posts
 
-... are coming soon! I'm porting things over as we... speak.
+Sometimes I write and share my thoughts. Please read through and share any constructive feedback!

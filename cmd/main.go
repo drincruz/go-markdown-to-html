@@ -39,19 +39,19 @@ func MarkdownToHTML(md []byte) []byte {
 	return markdown.ToHTML(md, nil, nil)
 }
 
-func readFile() []byte {
-	data, err := ioutil.ReadFile(os.Args[1])
+func readFile(filename string) []byte {
+	data, err := ioutil.ReadFile(filename)
 	if err != nil {
 		log.Fatal(err)
 	}
 	return data
 }
 
-func header() Header {
+func header(title string, contentTitle string, contentSubtitle string) Header {
 	return Header{
-		Title:           getTitle(),
-		ContentTitle:    os.Args[2],
-		ContentSubtitle: os.Args[3],
+		Title:           title,
+		ContentTitle:    contentTitle,
+		ContentSubtitle: contentSubtitle,
 		RelativePath:    relativePath(),
 	}
 }
@@ -70,11 +70,15 @@ func footer() Footer {
 
 func getTitle() string {
 	if os.Args[2] != "" {
-		return fmt.Sprintf("%s | drincruz.com", os.Args[2])
+		return buildTitle(os.Args[2])
 	}
 	return "drincruz.com Blog"
-
 }
+
+func buildTitle(title string) string {
+	return fmt.Sprintf("%s | drincruz.com", title)
+}
+
 func relativePath() string {
 	var path string = os.Args[4]
 	var outputArr []string
@@ -92,7 +96,7 @@ func relativePath() string {
 
 func main() {
 	var err error
-	var header = header()
+	var header = header(os.Args[1], os.Args[2], os.Args[3])
 	var output []byte
 	var outputStr strings.Builder
 	var headerStr bytes.Buffer
@@ -102,7 +106,7 @@ func main() {
 	var footerStr bytes.Buffer
 	footerTpl := template.Must(template.ParseFiles("bootstrap/clean-blog/footer.html.tpl"))
 	footerTpl.Execute(&footerStr, footer)
-	var content = readFile()
+	var content = readFile(os.Args[1])
 	var body = body(template.HTML(string(MarkdownToHTML(content))))
 	var contentStr bytes.Buffer
 	contentTpl := template.Must(template.ParseFiles("bootstrap/clean-blog/content.html.tpl"))
@@ -120,4 +124,10 @@ func main() {
 	if _, err = out.Write(output); err != nil {
 		os.Exit(-1)
 	}
+	// Hardcoding for now
+	most_recent([]string{
+		"markdown/2019/05/27/soft-skills-for-software-engineers.markdown",
+		"markdown/2019/03/30/distance-running-and-software-engineering.markdown",
+		"markdown/2018/08/04/three-years-of-searching.markdown",
+	})
 }
