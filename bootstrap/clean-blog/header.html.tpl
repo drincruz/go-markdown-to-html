@@ -31,6 +31,16 @@
       type="text/css"
     />
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P7FV7SH5VW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-P7FV7SH5VW');
+    </script>
+
     <!-- Custom styles for this template -->
     <link href="{{.RelativePath}}css/clean-blog.min.css" rel="stylesheet" />
   </head>
