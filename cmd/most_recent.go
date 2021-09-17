@@ -112,12 +112,13 @@ func cardContent(cards string) string {
 
 func most_recent(posts []string) {
 	var err error
-	var header = header(buildTitle("Welcome!"), "Greetings!", "My name is Adrian")
+	var relativePath string = "./"
+	var header = header(buildTitle("Welcome!"), "Greetings!", "My name is Adrian", relativePath)
 	var outputStr strings.Builder
 	var headerStr bytes.Buffer
 	tpl := template.Must(template.ParseFiles("bootstrap/clean-blog/header.html.tpl"))
 	tpl.Execute(&headerStr, header)
-	var footer = footer()
+	var footer = footer(relativePath)
 	var footerStr bytes.Buffer
 	footerTpl := template.Must(template.ParseFiles("bootstrap/clean-blog/footer.html.tpl"))
 	footerTpl.Execute(&footerStr, footer)

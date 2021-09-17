@@ -47,12 +47,12 @@ func readFile(filename string) []byte {
 	return data
 }
 
-func header(title string, contentTitle string, contentSubtitle string) Header {
+func header(title string, contentTitle string, contentSubtitle string, relativePath string) Header {
 	return Header{
 		Title:           title,
 		ContentTitle:    contentTitle,
 		ContentSubtitle: contentSubtitle,
-		RelativePath:    relativePath(),
+		RelativePath:    relativePath,
 	}
 }
 
@@ -62,9 +62,9 @@ func body(body template.HTML) Body {
 	}
 }
 
-func footer() Footer {
+func footer(relativePath string) Footer {
 	return Footer{
-		RelativePath: relativePath(),
+		RelativePath: relativePath,
 	}
 }
 
@@ -79,8 +79,7 @@ func buildTitle(title string) string {
 	return fmt.Sprintf("%s | drincruz.com", title)
 }
 
-func relativePath() string {
-	var path string = os.Args[4]
+func relativePath(path string) string {
 	var outputArr []string
 	for i := 1; i < strings.Count(path, "/"); i++ {
 		outputArr = append(outputArr, "../")
@@ -96,13 +95,14 @@ func relativePath() string {
 
 func main() {
 	var err error
-	var header = header(getTitle(), os.Args[2], os.Args[3])
+	var relativePath = relativePath(os.Args[4])
+	var header = header(getTitle(), os.Args[2], os.Args[3], relativePath)
 	var output []byte
 	var outputStr strings.Builder
 	var headerStr bytes.Buffer
 	tpl := template.Must(template.ParseFiles("bootstrap/clean-blog/header.html.tpl"))
 	tpl.Execute(&headerStr, header)
-	var footer = footer()
+	var footer = footer(relativePath)
 	var footerStr bytes.Buffer
 	footerTpl := template.Must(template.ParseFiles("bootstrap/clean-blog/footer.html.tpl"))
 	footerTpl.Execute(&footerStr, footer)
