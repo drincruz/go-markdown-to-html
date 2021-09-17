@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Build HTML
         run: |
-          go build -o go-markdown-to-html cmd/main.go
+          go build -o go-markdown-to-html cmd/*
           mkdir -p dist
           ./bin/build_pages.sh
           zip -r artifact dist/
