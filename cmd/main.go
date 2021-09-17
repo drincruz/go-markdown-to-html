@@ -96,7 +96,7 @@ func relativePath() string {
 
 func main() {
 	var err error
-	var header = header(os.Args[1], os.Args[2], os.Args[3])
+	var header = header(getTitle(), os.Args[2], os.Args[3])
 	var output []byte
 	var outputStr strings.Builder
 	var headerStr bytes.Buffer
