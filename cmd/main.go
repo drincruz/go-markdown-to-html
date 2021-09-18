@@ -93,11 +93,19 @@ func relativePath(path string) string {
 	return output
 }
 
-func main() {
+func writeIndex() {
+	// Hardcoding for now
+	most_recent([]string{
+		"markdown/2021/09/17/optimizing-for-writing.markdown",
+		"markdown/2019/05/27/soft-skills-for-software-engineers.markdown",
+		"markdown/2019/03/30/distance-running-and-software-engineering.markdown",
+	})
+}
+
+func writeBlog() {
 	var err error
 	var relativePath = relativePath(os.Args[4])
 	var header = header(getTitle(), os.Args[2], os.Args[3], relativePath)
-	var output []byte
 	var outputStr strings.Builder
 	var headerStr bytes.Buffer
 	tpl := template.Must(template.ParseFiles("bootstrap/clean-blog/header.html.tpl"))
@@ -116,18 +124,19 @@ func main() {
 	outputStr.WriteString(contentStr.String())
 	outputStr.WriteString(footerStr.String())
 
-	fmt.Printf("%s", outputStr.String())
-	var html []byte
-	output = MarkdownToHTML(html)
-	var out *os.File
-	out = os.Stdout
-	if _, err = out.Write(output); err != nil {
-		os.Exit(-1)
+	out, err := os.Create(os.Args[4])
+	if err != nil {
+		fmt.Errorf(err.Error())
+		return
 	}
-	// Hardcoding for now
-	most_recent([]string{
-		"markdown/2019/05/27/soft-skills-for-software-engineers.markdown",
-		"markdown/2019/03/30/distance-running-and-software-engineering.markdown",
-		"markdown/2018/08/04/three-years-of-searching.markdown",
-	})
+	defer out.Close()
+	_, err = out.WriteString(outputStr.String())
+}
+
+func main() {
+	if os.Args[1] == "write_index" {
+		writeIndex()
+		os.Exit(0)
+	}
+	writeBlog()
 }

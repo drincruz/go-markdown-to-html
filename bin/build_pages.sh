@@ -5,8 +5,8 @@
 MARKDOWN_TO_HTML="go-markdown-to-html"
 
 function to_html () {
-  echo "./${MARKDOWN_TO_HTML} $1 '$2' '$3' '$4' > $4";
-  ./${MARKDOWN_TO_HTML} $1 "$2" "$3" "$4" > $4
+  echo "./${MARKDOWN_TO_HTML} $1 '$2' '$3' '$4'";
+  ./${MARKDOWN_TO_HTML} $1 "$2" "$3" "$4"
 }
 
 function mkdir_dist_path () {
@@ -158,3 +158,12 @@ to_html markdown/2019/05/27/soft-skills-for-software-engineers.markdown \
   'Soft Skills for Software Engineers' \
   '' \
   dist/2019/05/27/soft-skills-for-software-engineers.html
+
+mkdir_dist_path dist/2021/09/17
+to_html markdown/2021/09/17/optimizing-for-writing.markdown \
+  'Optimizing for Writing' \
+  'Writing content, that is!' \
+  dist/2021/09/17/optimizing-for-writing.html
+
+# Write the Index page last
+to_html write_index
