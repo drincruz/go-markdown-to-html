@@ -14,6 +14,9 @@ function mkdir_dist_path () {
   mkdir -p $1
 }
 
+# One-off for favicon.png
+cp markdown/favicon.png dist/
+
 to_html markdown/test.markdown 'This is a title' 'And a subtitle' dist/test.html
 to_html markdown/error.markdown 'Error' 'Uh-oh, something went wrong' dist/error.html
 to_html markdown/about.markdown 'About Me' 'So who am I?' dist/about.html

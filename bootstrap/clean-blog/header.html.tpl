@@ -43,6 +43,9 @@
 
     <!-- Custom styles for this template -->
     <link href="{{.RelativePath}}css/clean-blog.min.css" rel="stylesheet" />
+
+    <!-- favicon -->
+    <link rel="icon" href="{{.RelativePath}}favicon.png">
   </head>
 
   <body>
