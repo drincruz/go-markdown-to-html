@@ -8,6 +8,7 @@ import (
 	"io"
 	"os"
 	"strings"
+	"time"
 
 	"golang.org/x/net/html"
 	"golang.org/x/net/html/atom"
@@ -35,9 +36,15 @@ func distFileFromMarkdown(markdown string) string {
 }
 
 func dateFromPath(path string) string {
+	const (
+		layoutISO = "2006-01-02"
+		layoutUS  = "January 2, 2006"
+	)
 	parts := strings.Split(path, "/")
 	if len(parts) > 3 {
-		return fmt.Sprintf("%s-%s-%s", parts[1], parts[2], parts[3])
+		date := fmt.Sprintf("%s-%s-%s", parts[1], parts[2], parts[3])
+		t, _ := time.Parse(layoutISO, date)
+		return fmt.Sprintf("%s, %d %s %d", t.Weekday(), t.Year(), t.Month(), t.Day())
 	}
 	// No date, so return one part.
 	return fmt.Sprintf("%s", parts[1])
