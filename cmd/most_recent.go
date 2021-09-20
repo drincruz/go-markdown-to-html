@@ -18,7 +18,7 @@ type Card struct {
 	Content template.HTML
 	Date    string
 	Link    string
-	Title   template.HTML
+	Title   string
 }
 
 func linkFromMarkdown(markdown string) string {
@@ -60,7 +60,7 @@ func contentMulti(markdownFilename string) string {
 		Content: renderNode(p),
 		Date:    dateFromPath(markdownFilename),
 		Link:    linkFromMarkdown(markdownFilename),
-		Title:   renderNode(title),
+		Title:   title.FirstChild.Data,
 	}
 	contentTpl := template.Must(template.ParseFiles("bootstrap/clean-blog/most_recent_card.html.tpl"))
 	contentTpl.Execute(&contentStr, card)
