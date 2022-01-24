@@ -139,4 +139,5 @@ func main() {
 		os.Exit(0)
 	}
 	writeBlog()
+	os.Exit(0)
 }
