@@ -1,6 +1,6 @@
 {
     "posts": [
         { "title": "Elixir Conditionals with Function Signatures", "url": "/2017/03/14/elixir-conditionals-with-function-signatures.html" },
-        { "title": "What Does Fibonacci Look Like in Elixir", "url": "/2017/08/19/what-does-fibonacci-look-like-in-elixir.html" },
+        { "title": "What Does Fibonacci Look Like in Elixir", "url": "/2017/08/19/what-does-fibonacci-look-like-in-elixir.html" }
     ]
 }
