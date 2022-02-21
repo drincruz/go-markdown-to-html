@@ -168,5 +168,7 @@ to_html markdown/2021/09/17/optimizing-for-writing.markdown \
   'Writing content, that is!' \
   dist/2021/09/17/optimizing-for-writing.html
 
+# Write the yearly archive pages
+to_html write_year_archives
 # Write the Index page last
 to_html write_index

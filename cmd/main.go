@@ -137,6 +137,13 @@ func main() {
 	if os.Args[1] == "write_index" {
 		writeIndex()
 		os.Exit(0)
+	} else if os.Args[1] == "write_year_archives" {
+		yearSummary("2016.json")
+		yearSummary("2017.json")
+		yearSummary("2018.json")
+		yearSummary("2019.json")
+		yearSummary("2021.json")
+		os.Exit(0)
 	}
 	writeBlog()
 	os.Exit(0)
