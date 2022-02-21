@@ -22,7 +22,7 @@
               </li>
             </ul>
             <p class="copyright text-muted">
-              Copyright &copy; drincruz.com 2021
+              Copyright &copy; drincruz.com 2022
             </p>
           </div>
         </div>
