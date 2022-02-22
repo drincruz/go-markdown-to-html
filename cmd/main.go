@@ -138,6 +138,9 @@ func main() {
 		writeIndex()
 		os.Exit(0)
 	} else if os.Args[1] == "write_year_archives" {
+		yearSummary("2013.json")
+		yearSummary("2014.json")
+		yearSummary("2015.json")
 		yearSummary("2016.json")
 		yearSummary("2017.json")
 		yearSummary("2018.json")
