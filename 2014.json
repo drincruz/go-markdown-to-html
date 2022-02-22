@@ -1,0 +1,32 @@
+{
+    "posts": [
+        {
+            "title": "Reading XML in Python with ElementTree",
+            "url": "/2014/01/08/reading-xml-in-python-with-elementtree.html"
+        },
+        {
+            "title": "From Initial Commit to Launch: The Story of a Quick Site Launch",
+            "url": "/2014/02/01/from-initial-commit-to-launch-the-story-of-a-quick-site-launch.html"
+        },
+        {
+            "title": "Silly Bug Fixes",
+            "url": "/2014/04/07/silly-bug-fixes.html"
+        },
+        {
+            "title": "Py-Closure: A Python Client for Closure",
+            "url": "/2014/05/07/py-closure-a-python-client-for-closure.html"
+        },
+        {
+            "title": "Standups and Bikesheds",
+            "url": "/2014/07/18/stand-ups-and-bikesheds.html"
+        },
+        {
+            "title": "Julython 2014 Recap",
+            "url": "/2014/08/06/julython-2014-recap.html"
+        },
+        {
+            "title": "Fighting Procrastination with Time Management",
+            "url": "/2014/11/03/fighting-procrastination-with-time-management.html"
+        }
+    ]
+}
