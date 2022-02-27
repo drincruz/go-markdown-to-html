@@ -73,6 +73,9 @@
             <li class="nav-item">
               <a class="nav-link" href="{{.RelativePath}}about.html">About</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{.RelativePath}}archive.html">Archive</a>
+            </li>
           </ul>
         </div>
       </div>

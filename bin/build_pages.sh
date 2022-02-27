@@ -170,5 +170,6 @@ to_html markdown/2021/09/17/optimizing-for-writing.markdown \
 
 # Write the yearly archive pages
 to_html write_year_archives
+to_html markdown/archive.markdown 'Archive' 'Posts from the past' dist/archive.html
 # Write the Index page last
 to_html write_index
