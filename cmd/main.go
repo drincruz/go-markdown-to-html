@@ -96,9 +96,9 @@ func relativePath(path string) string {
 func writeIndex() {
 	// Hardcoding for now
 	most_recent([]string{
+		"markdown/2022/10/23/weekly-writing-prompts.markdown",
 		"markdown/2021/09/17/optimizing-for-writing.markdown",
 		"markdown/2019/05/27/soft-skills-for-software-engineers.markdown",
-		"markdown/2019/03/30/distance-running-and-software-engineering.markdown",
 	})
 }
 
@@ -146,6 +146,7 @@ func main() {
 		yearSummary("2018.json")
 		yearSummary("2019.json")
 		yearSummary("2021.json")
+		yearSummary("2022.json")
 		os.Exit(0)
 	}
 	writeBlog()

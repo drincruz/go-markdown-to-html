@@ -168,6 +168,12 @@ to_html markdown/2021/09/17/optimizing-for-writing.markdown \
   'Writing content, that is!' \
   dist/2021/09/17/optimizing-for-writing.html
 
+mkdir_dist_path dist/2022/10/23
+to_html markdown/2022/10/23/weekly-writing-prompts.markdown \
+  'Weekly Writing Prompts' \
+  'A Journal for Self-reflection' \
+  dist/2022/10/23/weekly-writing-prompts.html
+
 # Write the yearly archive pages
 to_html write_year_archives
 to_html markdown/archive.markdown 'Archive' 'Posts from the past' dist/archive.html
