@@ -16,7 +16,7 @@ Pretty simple, yet effective. You see, if I have _too many_ prompts, a tired me 
 
 ### What was the general summary of the week?
 
-The week can often be a blur, but what are _my_ thoughts on how things went? Did I feel productive? Did I feel overwhelmed? Was it a roller coater of a week and a good mix of ups & downs?
+The week can often be a blur, but what are _my_ thoughts on how things went? Did I feel productive? Did I feel overwhelmed? Was it a roller coaster of a week and a good mix of ups & downs?
 The point to this prompt is to just get a bird's eye view of the week and give it a rating.
 
 ### What went well?
