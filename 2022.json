@@ -1,5 +1,12 @@
 {
     "posts": [
-        { "title": "Weekly Writing Prompts", "url": "/2022/10/23/weekly-writing-prompts.html" }
+        {
+            "title": "Weekly Writing Prompts",
+            "url": "/2022/10/23/weekly-writing-prompts.html"
+        },
+        {
+            "title": "Asking for Help",
+            "url": "/2022/12/21/asking-for-help.html"
+        }
     ]
 }

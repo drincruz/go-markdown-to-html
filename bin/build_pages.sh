@@ -180,6 +180,13 @@ to_html markdown/2022/10/23/weekly-writing-prompts.markdown \
   'A Journal for Self-reflection' \
   dist/2022/10/23/weekly-writing-prompts.html
 
+mkdir_dist_path dist/2022/12/21
+to_html markdown/2022/12/21/asking-for-help.markdown \
+  'Asking for Help' \
+  'Everyone Needs a Little Help Now and Then' \
+  dist/2022/12/21/asking-for-help.html
+cp markdown/2022/12/21/*.jpg dist/2022/12/21/
+
 # Write the yearly archive pages
 to_html write_year_archives
 to_html markdown/archive.markdown 'Archive' 'Posts from the past' dist/archive.html
