@@ -187,6 +187,13 @@ to_html markdown/2022/12/21/asking-for-help.markdown \
   dist/2022/12/21/asking-for-help.html
 cp markdown/2022/12/21/*.jpg dist/2022/12/21/
 
+mkdir_dist_path dist/2023/08/27
+to_html markdown/2023/08/27/webflow-a-year-in-review.markdown \
+  'Webflow: A Year in Review' \
+  'Looking back at my first year of learnings' \
+  dist/2023/08/27/webflow-a-year-in-review.html
+cp markdown/2023/08/27/*.jpg dist/2023/08/27/
+
 # Write the yearly archive pages
 to_html write_year_archives
 to_html markdown/archive.markdown 'Archive' 'Posts from the past' dist/archive.html
