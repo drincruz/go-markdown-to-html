@@ -194,6 +194,13 @@ to_html markdown/2023/08/27/webflow-a-year-in-review.markdown \
   dist/2023/08/27/webflow-a-year-in-review.html
 cp markdown/2023/08/27/*.jpg dist/2023/08/27/
 
+mkdir_dist_path dist/2023/10/21
+to_html markdown/2023/10/21/engineering-guilds-at-work.markdown \
+  'Engineering Guilds at Work' \
+  'A look back at what worked well and what did not work quite well' \
+  dist/2023/10/21/engineering-guilds-at-work.html
+cp markdown/2023/10/21/*.jpg dist/2023/10/21/
+
 # Write the yearly archive pages
 to_html write_year_archives
 to_html markdown/archive.markdown 'Archive' 'Posts from the past' dist/archive.html
