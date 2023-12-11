@@ -202,7 +202,7 @@ to_html markdown/2023/10/21/engineering-guilds-at-work.markdown \
 cp markdown/2023/10/21/*.jpg dist/2023/10/21/
 
 mkdir_dist_path dist/2023/12/10
-to_html markdown/2023/12/10/opportunities-for-growith-in-engineering.markdown \
+to_html markdown/2023/12/10/opportunities-for-growth-in-engineering.markdown \
   'Opportunities for Growth in Engineering' \
   'Why opportunities are important for engineering' \
   dist/2023/12/10/opportunities-for-growth-in-engineering.html
