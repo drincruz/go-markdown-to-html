@@ -201,6 +201,13 @@ to_html markdown/2023/10/21/engineering-guilds-at-work.markdown \
   dist/2023/10/21/engineering-guilds-at-work.html
 cp markdown/2023/10/21/*.jpg dist/2023/10/21/
 
+mkdir_dist_path dist/2023/12/10
+to_html markdown/2023/12/10/opportunities-for-growith-in-engineering.markdown \
+  'Opportunities for Growth in Engineering' \
+  'Why opportunities are important for engineering' \
+  dist/2023/12/10/opportunities-for-growth-in-engineering.html
+cp markdown/2023/12/10/*.jpg dist/2023/12/10/
+
 # Write the yearly archive pages
 to_html write_year_archives
 to_html markdown/archive.markdown 'Archive' 'Posts from the past' dist/archive.html
