@@ -96,9 +96,9 @@ func relativePath(path string) string {
 func writeIndex() {
 	// Hardcoding for now
 	most_recent([]string{
+		"markdown/2024/09/17/the-hardest-thing-i-have-done.markdown",
 		"markdown/2023/12/10/opportunities-for-growth-in-engineering.markdown",
 		"markdown/2023/10/21/engineering-guilds-at-work.markdown",
-		"markdown/2023/08/27/webflow-a-year-in-review.markdown",
 	})
 }
 
@@ -148,6 +148,7 @@ func main() {
 		yearSummary("2021.json")
 		yearSummary("2022.json")
 		yearSummary("2023.json")
+		yearSummary("2024.json")
 		os.Exit(0)
 	}
 	writeBlog()

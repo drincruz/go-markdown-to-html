@@ -4,6 +4,7 @@ Some posts are timeless, some posts are historical snapshots of where I was in l
 
 ## Posts
 
+- [2024](2024.html)
 - [2023](2023.html)
 - [2022](2022.html)
 - [2021](2021.html)

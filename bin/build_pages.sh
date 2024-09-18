@@ -208,6 +208,13 @@ to_html markdown/2023/12/10/opportunities-for-growth-in-engineering.markdown \
   dist/2023/12/10/opportunities-for-growth-in-engineering.html
 cp markdown/2023/12/10/*.jpg dist/2023/12/10/
 
+mkdir_dist_path dist/2024/09/17
+to_html markdown/2024/09/17/the-hardest-thing-i-have-done.markdown \
+  'The Hardest Thing I Have Done' \
+  'Mapping it all together' \
+  dist/2024/09/17/the-hardest-thing-i-have-done.html
+cp markdown/2024/09/17/*.jpg dist/2024/09/17/
+
 # Write the yearly archive pages
 to_html write_year_archives
 to_html markdown/archive.markdown 'Archive' 'Posts from the past' dist/archive.html
