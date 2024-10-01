@@ -94,12 +94,9 @@ func relativePath(path string) string {
 }
 
 func writeIndex() {
-	// Hardcoding for now
-	most_recent([]string{
-		"markdown/2024/09/17/the-hardest-thing-i-have-done.markdown",
-		"markdown/2023/12/10/opportunities-for-growth-in-engineering.markdown",
-		"markdown/2023/10/21/engineering-guilds-at-work.markdown",
-	})
+	posts := getMostRecent()
+	postsArray := getMostRecentArray(posts)
+	most_recent(postsArray)
 }
 
 func writeBlog() {

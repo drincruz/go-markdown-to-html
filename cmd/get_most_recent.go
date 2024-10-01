@@ -18,16 +18,16 @@ type Year struct {
 	Posts []Blog `json:"posts"`
 }
 
-func getMostRecent() {
+func getMostRecent() (posts []Blog) {
 	ex, err := os.Executable()
 	check(err, "Failed to get executable")
 	path := filepath.Dir(ex)
 	jsonFiles := getFiles("json", path)
 	if len(jsonFiles) == 0 {
 		log.Fatalf("No JSON files found")
-		return
+		return []Blog{}
 	}
-	posts := []Blog{}
+	posts = []Blog{}
 	maxPosts := 3
 
 	for _, file := range jsonFiles {
@@ -44,4 +44,5 @@ func getMostRecent() {
 		}
 	}
 	fmt.Printf("Posts: %+v, Length: %d\n", posts, len(posts))
+	return posts
 }
