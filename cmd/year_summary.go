@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"html/template"
-	"io/ioutil"
 	"os"
 	"strings"
 )
@@ -34,7 +33,7 @@ func yearSummary(jsonFile string) {
 	footerTpl := template.Must(template.ParseFiles("bootstrap/clean-blog/footer.html.tpl"))
 	footerTpl.Execute(&footerStr, footer)
 
-	yearData, _ := ioutil.ReadFile(jsonFile)
+	yearData, _ := os.ReadFile(jsonFile)
 	year := year{}
 	json.Unmarshal([]byte(yearData), &year)
 	var postLinks string
