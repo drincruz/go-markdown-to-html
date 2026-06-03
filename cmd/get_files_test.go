@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"log"
 	"os"
-	"strings"
 	"testing"
 )
 
@@ -27,23 +27,13 @@ func createTempFiles(tmpDir string) {
 	}
 }
 
-func removeTempFiles(tmpDir string) {
-	for _, file := range getTempFiles() {
-		filename := fmt.Sprintf("%s/%s", tmpDir, file)
-		f, err := os.Open(filename)
-		check(err, "Failed to open file")
-		f.Close()
-		err = os.Remove(filename)
-		if err != nil {
-			log.Fatalf("Failed to remove file: %s", file)
-		}
-	}
-}
-
 func TestGetFiles(t *testing.T) {
-	tmpDir := os.TempDir()
-	tmpDir = strings.TrimSuffix(tmpDir, "/")
-	log.Printf("[TestGetFiles] TempDir: %s\n", tmpDir)
+	tmpDir, err := ioutil.TempDir("", "test_get_files")
+	if err != nil {
+		t.Fatalf("Failed to create temp dir: %s", err)
+	}
+	defer os.RemoveAll(tmpDir)
+
 	createTempFiles(tmpDir)
 
 	want := []string{
@@ -62,6 +52,4 @@ func TestGetFiles(t *testing.T) {
 			t.Errorf("getFiles: %s != %s", got[index], want[index])
 		}
 	}
-
-	removeTempFiles(tmpDir)
 }

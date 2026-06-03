@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"html/template"
 	"io"
+	"log"
 	"os"
 	"strings"
 	"time"
@@ -52,15 +53,41 @@ func dateFromPath(path string) string {
 
 func contentMulti(markdownFilename string) string {
 	var contentStr bytes.Buffer
-	var content, _ = os.Open(distFileFromMarkdown(markdownFilename))
-	doc, _ := html.Parse(content)
-	p, _ := cardTag(doc, "p")
-	title, _ := cardTag(doc, "h1")
+	content, err := os.Open(distFileFromMarkdown(markdownFilename))
+	if err != nil {
+		log.Printf("Error: failed to open dist file for %s: %s\n", markdownFilename, err)
+		return ""
+	}
+	defer content.Close()
+
+	doc, err := html.Parse(content)
+	if err != nil {
+		log.Printf("Error: failed to parse HTML for %s: %s\n", markdownFilename, err)
+		return ""
+	}
+
+	p, err := cardTag(doc, "p")
+	if err != nil {
+		log.Printf("Error: failed to find p tag in %s: %s\n", markdownFilename, err)
+		return ""
+	}
+
+	title, err := cardTag(doc, "h1")
+	if err != nil {
+		log.Printf("Error: failed to find h1 tag in %s: %s\n", markdownFilename, err)
+		return ""
+	}
+
+	var titleText string
+	if title != nil && title.FirstChild != nil {
+		titleText = title.FirstChild.Data
+	}
+
 	var card = Card{
 		Content: renderNode(p),
 		Date:    dateFromPath(markdownFilename),
 		Link:    linkFromMarkdown(markdownFilename),
-		Title:   title.FirstChild.Data,
+		Title:   titleText,
 	}
 	contentTpl := template.Must(template.ParseFiles("bootstrap/clean-blog/most_recent_card.html.tpl"))
 	contentTpl.Execute(&contentStr, card)
@@ -69,9 +96,15 @@ func contentMulti(markdownFilename string) string {
 }
 
 func cardTag(doc *html.Node, tag string) (*html.Node, error) {
+	if doc == nil {
+		return nil, errors.New("document is nil")
+	}
 	var tags []*html.Node
 	var crawler func(*html.Node)
 	crawler = func(node *html.Node) {
+		if node == nil {
+			return
+		}
 		if node.Type == html.ElementNode && node.Data == tag {
 			tags = append(tags, node)
 			return
@@ -102,6 +135,9 @@ func firstNoImgTag(tags []*html.Node) *html.Node {
 }
 
 func renderNode(n *html.Node) template.HTML {
+	if n == nil {
+		return template.HTML("")
+	}
 	var buf bytes.Buffer
 	w := io.Writer(&buf)
 	html.Render(w, n)
@@ -120,7 +156,7 @@ func cardContent(cards string) string {
 func most_recent(posts []string) {
 	var err error
 	var relativePath string = "./"
-	var header = header(buildTitle("Welcome!"), "Greetings!", "My name is Adrian", relativePath)
+	var header = header(buildTitle("Welcome!"), "Greetings!", "My name is Adrian", relativePath, nil)
 	var outputStr strings.Builder
 	var headerStr bytes.Buffer
 	tpl := template.Must(template.ParseFiles("bootstrap/clean-blog/header.html.tpl"))
@@ -151,7 +187,7 @@ func most_recent(posts []string) {
 
 	out, err := os.Create("dist/index.html")
 	if err != nil {
-		fmt.Errorf(err.Error())
+		log.Printf("Error: failed to create dist/index.html: %s\n", err)
 		return
 	}
 	defer out.Close()

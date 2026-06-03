@@ -8,6 +8,12 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    {{if .Title}}
+    <meta property="og:title" content="{{.Title}}" />
+    {{- end}}
+    {{if .Image}}
+    <meta property="og:image" content="{{.Image}}" />
+    {{- end}}
 
     <title>{{.Title}}</title>
 

@@ -18,6 +18,7 @@ type Header struct {
 	ContentTitle    string
 	ContentSubtitle string
 	RelativePath    string
+	Image           *string
 }
 
 // Body is the content of an HTML page.
@@ -46,12 +47,13 @@ func readFile(filename string) []byte {
 	return data
 }
 
-func header(title string, contentTitle string, contentSubtitle string, relativePath string) Header {
+func header(title string, contentTitle string, contentSubtitle string, relativePath string, image *string) Header {
 	return Header{
 		Title:           title,
 		ContentTitle:    contentTitle,
 		ContentSubtitle: contentSubtitle,
 		RelativePath:    relativePath,
+		Image:           image,
 	}
 }
 
@@ -101,7 +103,16 @@ func writeIndex() {
 func writeBlog() {
 	var err error
 	var relativePath = relativePath(os.Args[4])
-	var header = header(getTitle(), os.Args[2], os.Args[3], relativePath)
+	var content = readFile(os.Args[1])
+	htmlContent := string(MarkdownToHTML(content))
+
+	var image *string
+	if extracted := extractFirstImage(htmlContent); extracted != "" {
+		absURL := resolveAbsoluteImageURL(extracted, os.Args[4])
+		image = &absURL
+	}
+
+	var header = header(getTitle(), os.Args[2], os.Args[3], relativePath, image)
 	var outputStr strings.Builder
 	var headerStr bytes.Buffer
 	tpl := template.Must(template.ParseFiles("bootstrap/clean-blog/header.html.tpl"))
@@ -110,8 +121,7 @@ func writeBlog() {
 	var footerStr bytes.Buffer
 	footerTpl := template.Must(template.ParseFiles("bootstrap/clean-blog/footer.html.tpl"))
 	footerTpl.Execute(&footerStr, footer)
-	var content = readFile(os.Args[1])
-	var body = body(template.HTML(string(MarkdownToHTML(content))))
+	var body = body(template.HTML(htmlContent))
 	var contentStr bytes.Buffer
 	contentTpl := template.Must(template.ParseFiles("bootstrap/clean-blog/content.html.tpl"))
 	contentTpl.Execute(&contentStr, body)
@@ -122,7 +132,7 @@ func writeBlog() {
 
 	out, err := os.Create(os.Args[4])
 	if err != nil {
-		fmt.Errorf(err.Error())
+		log.Printf("Error: failed to create file %s: %s\n", os.Args[4], err)
 		return
 	}
 	defer out.Close()
