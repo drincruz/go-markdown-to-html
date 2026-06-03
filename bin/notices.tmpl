@@ -1,0 +1,13 @@
+# Third-Party Notices
+
+This project uses the following open source software:
+{{ range . }}
+---
+
+## {{ .Name }}
+
+* **Version:** {{ .Version }}
+* **License:** [{{ .LicenseName }}]({{ .LicenseURL }})
+
+{{ .LicenseText }}
+{{ end }}

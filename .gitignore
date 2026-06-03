@@ -19,3 +19,6 @@ dist/
 
 # Ignore go-markdown-to-html binary
 go-markdown-to-html
+
+# Ignore third_party/ directory for licenses
+third_party/
