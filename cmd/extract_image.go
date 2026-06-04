@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"path/filepath"
 	"regexp"
 	"strings"
@@ -26,18 +27,16 @@ func resolveAbsoluteImageURL(imagePath string, postPath string) string {
 		return imagePath
 	}
 
-	const baseURL = "https://www.drincruz.com/"
-
 	// If it's a domain-relative path (e.g. /images/pic.png)
 	if strings.HasPrefix(imagePath, "/") {
-		return baseURL + strings.TrimPrefix(imagePath, "/")
+		return fmt.Sprintf("%s/%s", BaseURL(), strings.TrimPrefix(imagePath, "/"))
 	}
 
 	// Otherwise, it is relative to the post's directory (removing "dist/")
 	relPostPath := strings.TrimPrefix(postPath, "dist/")
 	dir := filepath.Dir(relPostPath)
 	if dir == "." || dir == "/" {
-		return baseURL + imagePath
+		return fmt.Sprintf("%s/%s", BaseURL(), imagePath)
 	}
-	return baseURL + dir + "/" + imagePath
+	return fmt.Sprintf("%s/%s/%s", BaseURL(), dir, imagePath)
 }

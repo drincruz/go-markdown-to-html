@@ -11,8 +11,16 @@
     {{if .Title}}
     <meta property="og:title" content="{{.Title}}" />
     {{- end}}
-    {{if .Image}}
-    <meta property="og:image" content="{{.Image}}" />
+    {{if .OpenGraphMeta.Image}}
+    <meta property="og:image" content="{{.OpenGraphMeta.Image}}" />
+    {{- end}}
+    {{if .OpenGraphMeta.Type}}
+    <meta property="og:type" content="{{.OpenGraphMeta.Type}}" />
+    {{else}}
+    <meta property="og:type" content="article" />
+    {{- end}}
+    {{if .OpenGraphMeta.Url}}
+    <meta property="og:url" content="{{.OpenGraphMeta.Url}}" />
     {{- end}}
 
     <title>{{.Title}}</title>

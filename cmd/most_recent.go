@@ -156,7 +156,9 @@ func cardContent(cards string) string {
 func most_recent(posts []string) {
 	var err error
 	var relativePath string = "./"
-	var header = header(buildTitle("Welcome!"), "Greetings!", "My name is Adrian", relativePath, nil)
+	var ogUrl = distPathToUrl(relativePath)
+	var ogType = "website"
+	var header = NewHeader(buildTitle("Welcome!"), "Greetings!", "My name is Adrian", relativePath, ogUrl, ogType)
 	var outputStr strings.Builder
 	var headerStr bytes.Buffer
 	tpl := template.Must(template.ParseFiles("bootstrap/clean-blog/header.html.tpl"))

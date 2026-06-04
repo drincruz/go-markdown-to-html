@@ -23,7 +23,9 @@ func yearSummary(jsonFile string) {
 	var relativePath string = "./"
 	var jsonFilename []string = filenameParts(jsonFile, ".")
 	var yearNum string = jsonFilename[0]
-	var header = header(buildTitle(yearNum), "Post Archive", yearNum, relativePath, nil)
+	var ogUrl = distPathToUrl(fmt.Sprintf("%s%s.html", relativePath, yearNum))
+	var ogType = "article"
+	var header = NewHeader(buildTitle(yearNum), "Post Archive", yearNum, relativePath, ogUrl, ogType)
 	var outputStr strings.Builder
 	var headerStr bytes.Buffer
 	tpl := template.Must(template.ParseFiles("bootstrap/clean-blog/header.html.tpl"))

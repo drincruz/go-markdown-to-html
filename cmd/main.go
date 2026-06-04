@@ -11,16 +11,6 @@ import (
 	"github.com/gomarkdown/markdown"
 )
 
-// Header is Typical HTML data
-// Header data is the "top" part of a site (metadata & such )
-type Header struct {
-	Title           string
-	ContentTitle    string
-	ContentSubtitle string
-	RelativePath    string
-	Image           *string
-}
-
 // Body is the content of an HTML page.
 // For us here, it will be the content parsed in from markdown.
 type Body struct {
@@ -45,16 +35,6 @@ func readFile(filename string) []byte {
 		log.Fatal(err)
 	}
 	return data
-}
-
-func header(title string, contentTitle string, contentSubtitle string, relativePath string, image *string) Header {
-	return Header{
-		Title:           title,
-		ContentTitle:    contentTitle,
-		ContentSubtitle: contentSubtitle,
-		RelativePath:    relativePath,
-		Image:           image,
-	}
 }
 
 func body(body template.HTML) Body {
@@ -106,13 +86,17 @@ func writeBlog() {
 	var content = readFile(os.Args[1])
 	htmlContent := string(MarkdownToHTML(content))
 
-	var image *string
+	var image string
 	if extracted := extractFirstImage(htmlContent); extracted != "" {
 		absURL := resolveAbsoluteImageURL(extracted, os.Args[4])
-		image = &absURL
+		image = absURL
+		log.Printf("[INFO][main][writeBlog] %s, %s", relativePath, absURL)
 	}
+	var ogUrl = distPathToUrl(os.Args[4])
+	var ogType = "article"
 
-	var header = header(getTitle(), os.Args[2], os.Args[3], relativePath, image)
+	log.Printf("[INFO][main][writeBlog] relativePath: %s", relativePath)
+	var header = NewHeader(getTitle(), os.Args[2], os.Args[3], relativePath, ogUrl, ogType, OpenGraphImage(image))
 	var outputStr strings.Builder
 	var headerStr bytes.Buffer
 	tpl := template.Must(template.ParseFiles("bootstrap/clean-blog/header.html.tpl"))
