@@ -140,10 +140,11 @@ func writeBlog() {
 }
 
 func main() {
-	if os.Args[1] == "write_index" {
+	switch os.Args[1] {
+	case "write_index":
 		writeIndex()
 		os.Exit(0)
-	} else if os.Args[1] == "write_year_archives" {
+	case "write_year_archives":
 		yearSummary("2013.json")
 		yearSummary("2014.json")
 		yearSummary("2015.json")

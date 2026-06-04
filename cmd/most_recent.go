@@ -23,15 +23,15 @@ type Card struct {
 }
 
 func linkFromMarkdown(markdown string) string {
-	newStr := strings.Replace(markdown, "markdown/", "", -1)
-	newStr = strings.Replace(newStr, ".markdown", ".html", -1)
+	newStr := strings.ReplaceAll(markdown, "markdown/", "")
+	newStr = strings.ReplaceAll(newStr, ".markdown", ".html")
 
 	return newStr
 }
 
 func distFileFromMarkdown(markdown string) string {
-	newStr := strings.Replace(markdown, "markdown/", "dist/", -1)
-	newStr = strings.Replace(newStr, ".markdown", ".html", -1)
+	newStr := strings.ReplaceAll(markdown, "markdown/", "dist/")
+	newStr = strings.ReplaceAll(newStr, ".markdown", ".html")
 
 	return newStr
 }
