@@ -30,7 +30,7 @@
               </li>
             </ul>
             <p class="copyright text-muted">
-              Copyright &copy; drincruz.com 2024
+              Copyright &copy; drincruz.com 2026
             </p>
           </div>
         </div>

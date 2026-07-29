@@ -215,6 +215,14 @@ to_html markdown/2024/09/17/the-hardest-thing-i-have-done.markdown \
   dist/2024/09/17/the-hardest-thing-i-have-done.html
 cp markdown/2024/09/17/*.jpg dist/2024/09/17/
 
+mkdir_dist_path dist/2026/07/29
+to_html markdown/2026/07/29/tradeoffs-in-engineering.markdown \
+  'Tradeoffs in Engineering' \
+  'Pieces of the puzzle' \
+  dist/2026/07/29/tradeoffs-in-engineering.html
+cp markdown/2026/07/29/*.jpg dist/2026/07/29/
+cp markdown/2026/07/29/*.png dist/2026/07/29/
+
 # Write the yearly archive pages
 to_html write_year_archives
 to_html markdown/archive.markdown 'Archive' 'Posts from the past' dist/archive.html

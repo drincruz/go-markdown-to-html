@@ -140,6 +140,7 @@ func main() {
 		yearSummary("2022.json")
 		yearSummary("2023.json")
 		yearSummary("2024.json")
+		yearSummary("2026.json")
 		os.Exit(0)
 	}
 	writeBlog()
