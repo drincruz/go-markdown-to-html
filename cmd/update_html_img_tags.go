@@ -5,21 +5,24 @@ import (
 	"strings"
 
 	"golang.org/x/net/html"
+	"golang.org/x/net/html/atom"
 )
 
 func UpdateHtmlImgTags(content []byte) []byte {
 	reader := bytes.NewReader(content)
+	context := &html.Node{Type: html.ElementNode, Data: "body", DataAtom: atom.Body}
 
-	doc, err := html.Parse(reader)
+	nodes, err := html.ParseFragment(reader, context)
 	if err != nil {
 		panic(err)
 	}
 
-	UpdateHtmlImgNodes(doc)
-
 	var buf bytes.Buffer
-	if err := html.Render(&buf, doc); err != nil {
-		panic(err)
+	for _, n := range nodes {
+		UpdateHtmlImgNodes(n)
+		if err := html.Render(&buf, n); err != nil {
+			panic(err)
+		}
 	}
 
 	return buf.Bytes()

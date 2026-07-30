@@ -85,7 +85,6 @@ func writeBlog() {
 	var relativePath = relativePath(os.Args[4])
 	var content = readFile(os.Args[1])
 	htmlContent := string(MarkdownToHTML(content))
-	htmlContent = string(UpdateHtmlImgTags([]byte(htmlContent)))
 
 	var image string
 	if extracted := extractFirstImage(htmlContent); extracted != "" {
@@ -110,9 +109,10 @@ func writeBlog() {
 	var contentStr bytes.Buffer
 	contentTpl := template.Must(template.ParseFiles("bootstrap/clean-blog/content.html.tpl"))
 	contentTpl.Execute(&contentStr, body)
+	updatedContent := string(UpdateHtmlImgTags(contentStr.Bytes()))
 
 	outputStr.WriteString(headerStr.String())
-	outputStr.WriteString(contentStr.String())
+	outputStr.WriteString(updatedContent)
 	outputStr.WriteString(footerStr.String())
 
 	out, err := os.Create(os.Args[4])

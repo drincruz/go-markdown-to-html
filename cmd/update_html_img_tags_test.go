@@ -52,3 +52,22 @@ func TestUpdateHtmlImgTags(t *testing.T) {
 		})
 	}
 }
+
+// UpdateHtmlImgTags is called on inner fragments (e.g. content.html.tpl's
+// <div>-wrapped output, which itself sits inside <body> opened by
+// header.html.tpl and closed by footer.html.tpl). It must not synthesize a
+// document wrapper around the fragment, or the assembled page would end up
+// with an <html>/<head>/<body> injected in the middle of the document.
+func TestUpdateHtmlImgTagsDoesNotWrapFragment(t *testing.T) {
+	input := `<div class="container"><div class="row"><div class="col-lg-8 col-md-10 mx-auto"><p>Hello</p><img src="x.jpg"></div></div></div>`
+	got := string(UpdateHtmlImgTags([]byte(input)))
+
+	for _, tag := range []string{"<html", "<head", "<body"} {
+		if strings.Contains(got, tag) {
+			t.Errorf("UpdateHtmlImgTags() = %q, unexpectedly contains %q wrapper", got, tag)
+		}
+	}
+	if !strings.Contains(got, `class="img-fluid"`) {
+		t.Errorf("UpdateHtmlImgTags() = %q, want img-fluid class applied", got)
+	}
+}
