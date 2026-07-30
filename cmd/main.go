@@ -85,6 +85,7 @@ func writeBlog() {
 	var relativePath = relativePath(os.Args[4])
 	var content = readFile(os.Args[1])
 	htmlContent := string(MarkdownToHTML(content))
+	htmlContent = string(UpdateHtmlImgTags([]byte(htmlContent)))
 
 	var image string
 	if extracted := extractFirstImage(htmlContent); extracted != "" {
