@@ -223,6 +223,13 @@ to_html markdown/2026/07/29/tradeoffs-in-engineering.markdown \
 cp markdown/2026/07/29/*.jpg dist/2026/07/29/
 cp markdown/2026/07/29/*.png dist/2026/07/29/
 
+mkdir_dist_path dist/2026/08/18
+to_html markdown/2026/08/18/high-cost-of-fire-and-forget.markdown \
+  'The High Cost of Fire-and-Forget' \
+  'Why We Had to Rebuild Our Audit Logs' \
+  dist/2026/08/18/high-cost-of-fire-and-forget.html
+cp markdown/2026/08/18/*.jpg dist/2026/08/18/
+
 # Write the yearly archive pages
 to_html write_year_archives
 to_html markdown/archive.markdown 'Archive' 'Posts from the past' dist/archive.html
