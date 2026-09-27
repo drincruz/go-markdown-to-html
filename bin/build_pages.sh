@@ -230,6 +230,13 @@ to_html markdown/2026/08/18/high-cost-of-fire-and-forget.markdown \
   dist/2026/08/18/high-cost-of-fire-and-forget.html
 cp markdown/2026/08/18/*.jpg dist/2026/08/18/
 
+mkdir_dist_path dist/2026/09/26
+to_html markdown/2026/09/26/the-plumbing-of-holistic-engineering.markdown \
+  'The Plumbing of Holistic Engineering' \
+  'What Toilet Plumbing Reminded Me of Software Architecture' \
+  dist/2026/09/26/the-plumbing-of-holistic-engineering.html
+cp markdown/2026/09/26/*.jpg dist/2026/09/26/
+
 # Write the yearly archive pages
 to_html write_year_archives
 to_html markdown/archive.markdown 'Archive' 'Posts from the past' dist/archive.html
