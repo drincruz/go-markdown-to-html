@@ -6,8 +6,8 @@ This project uses the following open source software:
 
 ## github.com/gomarkdown/markdown
 
-* **Version:** v0.0.0-20200824053859-8c8b3816f167
-* **License:** [BSD-2-Clause](https://github.com/gomarkdown/markdown/blob/8c8b3816f167/LICENSE.txt)
+* **Version:** v0.0.0-20260923180740-94fc73f6b1a3
+* **License:** [BSD-2-Clause](https://github.com/gomarkdown/markdown/blob/94fc73f6b1a3/LICENSE.txt)
 
 Markdown is distributed under the Simplified BSD License:
 
