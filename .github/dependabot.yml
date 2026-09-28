@@ -1,0 +1,30 @@
+# Version updates arrive as one grouped PR per ecosystem each week. The
+# cooldown only applies to version updates: a release has to be a week old
+# before it's proposed, which skips the window in which a hijacked or
+# typosquatted release is usually caught and yanked.
+version: 2
+
+updates:
+  # Actions are pinned by commit SHA with a version comment; Dependabot
+  # updates both.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        patterns: ["*"]
+
+  # go.mod / go.sum. Remember to run `make notices` on these PRs, or the
+  # License Check workflow fails on a stale THIRD_PARTY_NOTICES.md.
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 7
+    groups:
+      go:
+        patterns: ["*"]
