@@ -21,8 +21,7 @@ type post struct {
 func yearSummary(jsonFile string) {
 	var err error
 	var relativePath string = "./"
-	var jsonFilename []string = filenameParts(jsonFile, ".")
-	var yearNum string = jsonFilename[0]
+	var yearNum string = yearFromJsonFile(jsonFile)
 	var ogUrl = distPathToUrl(fmt.Sprintf("%s%s.html", relativePath, yearNum))
 	var ogType = "article"
 	var description = OpenGraphDescription(fmt.Sprintf("Blog posts from %s on drincruz.com.", yearNum))

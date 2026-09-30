@@ -5,6 +5,8 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"path/filepath"
+	"reflect"
 	"testing"
 )
 
@@ -50,6 +52,32 @@ func TestGetFiles(t *testing.T) {
 	for index, val := range want {
 		if got[index] != val {
 			t.Errorf("getFiles: %s != %s", got[index], want[index])
+		}
+	}
+}
+
+func TestYearFiles(t *testing.T) {
+	tmpDir := t.TempDir()
+	for _, name := range []string{"2024.json", "2026.json", "package.json", "notes.json", "20260.json", "2026.txt"} {
+		if err := os.WriteFile(filepath.Join(tmpDir, name), []byte("{}"), 0o644); err != nil {
+			t.Fatalf("Failed to create file %s: %s", name, err)
+		}
+	}
+
+	want := []string{
+		filepath.Join(tmpDir, "2026.json"),
+		filepath.Join(tmpDir, "2024.json"),
+	}
+	got := yearFiles(tmpDir)
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("yearFiles() = %v, want %v", got, want)
+	}
+}
+
+func TestYearFromJsonFile(t *testing.T) {
+	for _, path := range []string{"2026.json", "./2026.json", "/abs/path/2026.json"} {
+		if got := yearFromJsonFile(path); got != "2026" {
+			t.Errorf("yearFromJsonFile(%q) = %q, want %q", path, got, "2026")
 		}
 	}
 }

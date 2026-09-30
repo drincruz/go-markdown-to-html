@@ -6,9 +6,7 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"path/filepath"
 	"regexp"
-	"strings"
 )
 
 const sitemapNamespace = "http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -57,8 +55,7 @@ func readYearPosts(jsonFile string) []Blog {
 }
 
 func yearPagePath(jsonFile string) string {
-	yearNum := strings.TrimSuffix(filepath.Base(jsonFile), ".json")
-	return fmt.Sprintf("/%s.html", yearNum)
+	return fmt.Sprintf("/%s.html", yearFromJsonFile(jsonFile))
 }
 
 func sitemapEntry(path string, lastMod string) sitemapURL {
@@ -72,7 +69,7 @@ func sitemapEntry(path string, lastMod string) sitemapURL {
 func sitemapEntries(jsonDir string) []sitemapURL {
 	var yearEntries []sitemapURL
 	var allPosts []Blog
-	for _, jsonFile := range getFiles("json", jsonDir) {
+	for _, jsonFile := range yearFiles(jsonDir) {
 		posts := readYearPosts(jsonFile)
 		allPosts = append(allPosts, posts...)
 		yearEntries = append(yearEntries, sitemapEntry(yearPagePath(jsonFile), newestPostDate(posts)))

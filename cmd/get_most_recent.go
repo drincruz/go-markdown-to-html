@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"path/filepath"
 )
 
 type Blog struct {
@@ -19,10 +18,7 @@ type Year struct {
 }
 
 func getMostRecent() (posts []Blog) {
-	ex, err := os.Executable()
-	check(err, "Failed to get executable")
-	path := filepath.Dir(ex)
-	jsonFiles := getFiles("json", path)
+	jsonFiles := yearFiles(".")
 	if len(jsonFiles) == 0 {
 		log.Fatalf("No JSON files found")
 		return []Blog{}

@@ -131,18 +131,9 @@ func main() {
 		writeIndex()
 		os.Exit(0)
 	case "write_year_archives":
-		yearSummary("2013.json")
-		yearSummary("2014.json")
-		yearSummary("2015.json")
-		yearSummary("2016.json")
-		yearSummary("2017.json")
-		yearSummary("2018.json")
-		yearSummary("2019.json")
-		yearSummary("2021.json")
-		yearSummary("2022.json")
-		yearSummary("2023.json")
-		yearSummary("2024.json")
-		yearSummary("2026.json")
+		for _, jsonFile := range yearFiles(".") {
+			yearSummary(jsonFile)
+		}
 		os.Exit(0)
 	case "write_seo_files":
 		writeSitemap(".", "dist/sitemap.xml")

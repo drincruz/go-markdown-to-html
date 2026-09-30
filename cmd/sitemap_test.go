@@ -46,6 +46,9 @@ func TestSitemapEntries(t *testing.T) {
 		{"title": "Plumbing", "url": "/2026/09/26/plumbing.html"},
 		{"title": "Tradeoffs", "url": "/2026/07/29/tradeoffs.html"}
 	]}`)
+	writeFixture(t, dir, "notes.json", `{"posts": [
+		{"title": "Decoy", "url": "/2025/01/01/decoy.html"}
+	]}`)
 
 	want := []sitemapURL{
 		{Loc: "https://www.drincruz.com/", LastMod: "2026-09-26"},
