@@ -2,21 +2,11 @@ package main
 
 import (
 	"bytes"
-	"encoding/json"
 	"fmt"
 	"html/template"
 	"os"
 	"strings"
 )
-
-type year struct {
-	Posts []post
-}
-
-type post struct {
-	Title string `json:"title"`
-	Url   string `json:"url"`
-}
 
 func yearSummary(jsonFile string) {
 	var err error
@@ -35,11 +25,8 @@ func yearSummary(jsonFile string) {
 	footerTpl := template.Must(template.ParseFiles("bootstrap/clean-blog/footer.html.tpl"))
 	footerTpl.Execute(&footerStr, footer)
 
-	yearData, _ := os.ReadFile(jsonFile)
-	year := year{}
-	json.Unmarshal([]byte(yearData), &year)
 	var postLinks string
-	for _, post := range year.Posts {
+	for _, post := range readYearPosts(jsonFile) {
 		postLinks += fmt.Sprintf("<a href=\"%s\">%s</a><br />\n", post.Url, post.Title)
 	}
 

@@ -2,10 +2,12 @@
     "posts": [
         {
             "title": "Squashing git Commits is Great Code Etiquette",
+            "subtitle": "",
             "url": "/2015/04/06/squashing-git-commits-is-great-code-etiquette.html"
         },
         {
-            "title": "Intro to Building out Data Pipelines with Python and Luigi",
+            "title": "Intro to Building Out Data Pipelines",
+            "subtitle": "With Python and Luigi",
             "url": "/2015/05/31/intro-to-building-out-data-pipelines-with-python-and-luigi.html"
         }
     ]

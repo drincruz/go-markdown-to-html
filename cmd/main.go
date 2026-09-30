@@ -49,9 +49,10 @@ func footer(relativePath string) Footer {
 	}
 }
 
-func getTitle() string {
-	if os.Args[2] != "" {
-		return buildTitle(os.Args[2])
+// Return the <title> for a page, falling back to the site name.
+func pageTitle(title string) string {
+	if title != "" {
+		return buildTitle(title)
 	}
 	return "drincruz.com Blog"
 }
@@ -80,24 +81,24 @@ func writeIndex() {
 	most_recent(postsArray)
 }
 
-func writeBlog() {
+func writeBlog(mdPath string, title string, subtitle string, outPath string) {
 	var err error
-	var relativePath = relativePath(os.Args[4])
-	var content = readFile(os.Args[1])
+	var relativePath = relativePath(outPath)
+	var content = readFile(mdPath)
 	htmlContent := string(MarkdownToHTML(content))
 
 	var image string
 	if extracted := extractFirstImage(htmlContent); extracted != "" {
-		absURL := resolveAbsoluteImageURL(extracted, os.Args[4])
+		absURL := resolveAbsoluteImageURL(extracted, outPath)
 		image = absURL
 		log.Printf("[INFO][main][writeBlog] %s, %s", relativePath, absURL)
 	}
-	var ogUrl = distPathToUrl(os.Args[4])
+	var ogUrl = distPathToUrl(outPath)
 	var ogType = "article"
 
 	log.Printf("[INFO][main][writeBlog] relativePath: %s", relativePath)
-	var description = OpenGraphDescription(postDescription(htmlContent, os.Args[3]))
-	var header = NewHeader(getTitle(), os.Args[2], os.Args[3], relativePath, ogUrl, ogType, OpenGraphImage(image), description)
+	var description = OpenGraphDescription(postDescription(htmlContent, subtitle))
+	var header = NewHeader(pageTitle(title), title, subtitle, relativePath, ogUrl, ogType, OpenGraphImage(image), description)
 	var outputStr strings.Builder
 	var headerStr bytes.Buffer
 	tpl := template.Must(template.ParseFiles("bootstrap/clean-blog/header.html.tpl"))
@@ -116,9 +117,9 @@ func writeBlog() {
 	outputStr.WriteString(updatedContent)
 	outputStr.WriteString(footerStr.String())
 
-	out, err := os.Create(os.Args[4])
+	out, err := os.Create(outPath)
 	if err != nil {
-		log.Printf("Error: failed to create file %s: %s\n", os.Args[4], err)
+		log.Printf("Error: failed to create file %s: %s\n", outPath, err)
 		return
 	}
 	defer out.Close()
@@ -140,6 +141,6 @@ func main() {
 		writeRobots("dist/robots.txt")
 		os.Exit(0)
 	}
-	writeBlog()
+	writeBlog(os.Args[1], os.Args[2], os.Args[3], os.Args[4])
 	os.Exit(0)
 }

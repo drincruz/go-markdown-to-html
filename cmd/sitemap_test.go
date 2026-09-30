@@ -37,6 +37,23 @@ func writeFixture(t *testing.T, dir string, name string, content string) {
 	}
 }
 
+func TestReadYearPosts(t *testing.T) {
+	dir := t.TempDir()
+	writeFixture(t, dir, "2014.json", `{"posts": [
+		{"title": "Py-Closure", "subtitle": "A Python Client for Closure", "url": "/2014/05/07/py-closure.html"},
+		{"title": "Silly Bug Fixes", "url": "/2014/04/07/silly-bug-fixes.html"}
+	]}`)
+
+	want := []Blog{
+		{Title: "Py-Closure", Subtitle: "A Python Client for Closure", Url: "/2014/05/07/py-closure.html"},
+		{Title: "Silly Bug Fixes", Url: "/2014/04/07/silly-bug-fixes.html"},
+	}
+	got := readYearPosts(filepath.Join(dir, "2014.json"))
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("readYearPosts() =\n%+v\nwant\n%+v", got, want)
+	}
+}
+
 func TestSitemapEntries(t *testing.T) {
 	dir := t.TempDir()
 	writeFixture(t, dir, "2024.json", `{"posts": [

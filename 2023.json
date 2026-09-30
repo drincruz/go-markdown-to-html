@@ -2,14 +2,17 @@
     "posts": [
         {
             "title": "Webflow: A Year in Review",
+            "subtitle": "Looking back at my first year of learnings",
             "url": "/2023/08/27/webflow-a-year-in-review.html"
         },
         {
             "title": "Engineering Guilds at Work",
+            "subtitle": "A look back at what worked well and what did not work quite well",
             "url": "/2023/10/21/engineering-guilds-at-work.html"
         },
         {
             "title": "Opportunities for Growth in Engineering",
+            "subtitle": "Why opportunities are important for engineering",
             "url": "/2023/12/10/opportunities-for-growth-in-engineering.html"
         }
     ]

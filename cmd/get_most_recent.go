@@ -8,8 +8,9 @@ import (
 )
 
 type Blog struct {
-	Title string `json:"title"`
-	Url   string `json:"url"`
+	Title    string `json:"title"`
+	Subtitle string `json:"subtitle"`
+	Url      string `json:"url"`
 }
 
 // Define a struct that matches the JSON structure

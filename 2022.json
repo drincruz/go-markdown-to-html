@@ -2,10 +2,12 @@
     "posts": [
         {
             "title": "Weekly Writing Prompts",
+            "subtitle": "A Journal for Self-reflection",
             "url": "/2022/10/23/weekly-writing-prompts.html"
         },
         {
             "title": "Asking for Help",
+            "subtitle": "Everyone Needs a Little Help Now and Then",
             "url": "/2022/12/21/asking-for-help.html"
         }
     ]

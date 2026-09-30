@@ -2,14 +2,17 @@
     "posts": [
         {
             "title": "The Plumbing of Holistic Engineering",
+            "subtitle": "What Toilet Plumbing Reminded Me of Software Architecture",
             "url": "/2026/09/26/the-plumbing-of-holistic-engineering.html"
         },
         {
             "title": "The High Cost of Fire-and-Forget",
+            "subtitle": "Why We Had to Rebuild Our Audit Logs",
             "url": "/2026/08/18/high-cost-of-fire-and-forget.html"
         },
         {
             "title": "Tradeoffs in Engineering",
+            "subtitle": "Pieces of the puzzle",
             "url": "/2026/07/29/tradeoffs-in-engineering.html"
         }
     ]
