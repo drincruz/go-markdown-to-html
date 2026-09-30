@@ -11,12 +11,19 @@ type Header struct {
 }
 
 type OpenGraphMetadata struct {
-	Image string
-	Type  string
-	Url   string
+	Description string
+	Image       string
+	Type        string
+	Url         string
 }
 
 type OpenGraphOptions func(*OpenGraphMetadata)
+
+func OpenGraphDescription(description string) OpenGraphOptions {
+	return func(og *OpenGraphMetadata) {
+		og.Description = description
+	}
+}
 
 func OpenGraphImage(image string) OpenGraphOptions {
 	return func(og *OpenGraphMetadata) {
@@ -26,9 +33,10 @@ func OpenGraphImage(image string) OpenGraphOptions {
 
 func NewHeader(t string, ct string, cs string, rp string, url string, ogType string, opts ...OpenGraphOptions) Header {
 	og := &OpenGraphMetadata{
-		Image: OgDefaultImage(),
-		Type:  ogType,
-		Url:   url,
+		Description: OgDefaultDescription(),
+		Image:       OgDefaultImage(),
+		Type:        ogType,
+		Url:         url,
 	}
 
 	for _, opt := range opts {

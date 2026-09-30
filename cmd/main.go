@@ -96,7 +96,8 @@ func writeBlog() {
 	var ogType = "article"
 
 	log.Printf("[INFO][main][writeBlog] relativePath: %s", relativePath)
-	var header = NewHeader(getTitle(), os.Args[2], os.Args[3], relativePath, ogUrl, ogType, OpenGraphImage(image))
+	var description = OpenGraphDescription(postDescription(htmlContent, os.Args[3]))
+	var header = NewHeader(getTitle(), os.Args[2], os.Args[3], relativePath, ogUrl, ogType, OpenGraphImage(image), description)
 	var outputStr strings.Builder
 	var headerStr bytes.Buffer
 	tpl := template.Must(template.ParseFiles("bootstrap/clean-blog/header.html.tpl"))

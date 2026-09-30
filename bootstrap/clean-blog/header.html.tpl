@@ -6,10 +6,13 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="description" content="" />
+    <meta name="description" content="{{.OpenGraphMeta.Description}}" />
     <meta name="author" content="" />
     {{if .Title}}
     <meta property="og:title" content="{{.Title}}" />
+    {{- end}}
+    {{if .OpenGraphMeta.Description}}
+    <meta property="og:description" content="{{.OpenGraphMeta.Description}}" />
     {{- end}}
     {{if .OpenGraphMeta.Image}}
     <meta property="og:image" content="{{.OpenGraphMeta.Image}}" />
@@ -21,6 +24,7 @@
     {{- end}}
     {{if .OpenGraphMeta.Url}}
     <meta property="og:url" content="{{.OpenGraphMeta.Url}}" />
+    <link rel="canonical" href="{{.OpenGraphMeta.Url}}" />
     {{- end}}
 
     <title>{{.Title}}</title>
