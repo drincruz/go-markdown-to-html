@@ -10,7 +10,7 @@ To build the `go-markdown-to-html` binary, simply run `go build -o go-markdown-t
 To run the tests, you can run `go test -v ./...`.
 
 ## Generating the Static HTML
-After building the binary (`go-markdown-to-html`), you can just run `./bin/build_pages.sh` to generate the HTML files. These files will be generated in the `dist` directory.
+After building the binary (`go-markdown-to-html`), you can just run `./bin/build_pages.sh` to generate the HTML files. These files will be generated in the `dist` directory, along with a `robots.txt` and a `sitemap.xml` (built from the `YYYY.json` post lists).
 
 ## Managing Third-Party Licenses
 

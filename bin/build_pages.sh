@@ -239,6 +239,8 @@ cp markdown/2026/09/26/*.jpg dist/2026/09/26/
 
 # Write the yearly archive pages
 to_html write_year_archives
+# Write robots.txt and sitemap.xml
+to_html write_seo_files
 to_html markdown/archive.markdown 'Archive' 'Posts from the past' dist/archive.html
 # Write the Index page last
 to_html write_index

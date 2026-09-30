@@ -143,6 +143,10 @@ func main() {
 		yearSummary("2024.json")
 		yearSummary("2026.json")
 		os.Exit(0)
+	case "write_seo_files":
+		writeSitemap(".", "dist/sitemap.xml")
+		writeRobots("dist/robots.txt")
+		os.Exit(0)
 	}
 	writeBlog()
 	os.Exit(0)
