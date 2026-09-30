@@ -8,6 +8,11 @@ import (
 	"strings"
 )
 
+// Return an HTML-escaped link to a post for its year page.
+func yearPostLink(post Blog) string {
+	return fmt.Sprintf("<a href=\"%s\">%s</a><br />\n", template.HTMLEscapeString(post.Url), template.HTMLEscapeString(post.Title))
+}
+
 func yearSummary(jsonFile string) {
 	var err error
 	var relativePath string = "./"
@@ -27,7 +32,7 @@ func yearSummary(jsonFile string) {
 
 	var postLinks string
 	for _, post := range readYearPosts(jsonFile) {
-		postLinks += fmt.Sprintf("<a href=\"%s\">%s</a><br />\n", post.Url, post.Title)
+		postLinks += yearPostLink(post)
 	}
 
 	var contentStr string

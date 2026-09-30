@@ -131,6 +131,9 @@ func main() {
 	case "write_index":
 		writeIndex()
 		os.Exit(0)
+	case "write_posts":
+		writePosts(".")
+		os.Exit(0)
 	case "write_year_archives":
 		for _, jsonFile := range yearFiles(".") {
 			yearSummary(jsonFile)
