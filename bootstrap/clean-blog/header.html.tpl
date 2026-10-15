@@ -73,7 +73,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand" href="{{.RelativePath}}index.html">drincruz.com</a>
+        <a class="navbar-brand" href="{{.RelativePath}}">drincruz.com</a>
         <button
           class="navbar-toggler navbar-toggler-right"
           type="button"
@@ -89,7 +89,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="{{.RelativePath}}index.html">Home</a>
+              <a class="nav-link" href="{{.RelativePath}}">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{.RelativePath}}about.html">About</a>
