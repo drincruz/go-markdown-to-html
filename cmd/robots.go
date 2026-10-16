@@ -8,7 +8,6 @@ import (
 
 // Pages that are published but should not be crawled.
 var robotsDisallowed = []string{
-	"/test.html",
 	"/error.html",
 }
 

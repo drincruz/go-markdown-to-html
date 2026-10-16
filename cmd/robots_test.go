@@ -10,7 +10,6 @@ func TestBuildRobots(t *testing.T) {
 	wantLines := []string{
 		"User-agent: *",
 		"Allow: /",
-		"Disallow: /test.html",
 		"Disallow: /error.html",
 		"Sitemap: https://www.drincruz.com/sitemap.xml",
 	}
@@ -18,6 +17,9 @@ func TestBuildRobots(t *testing.T) {
 		if !strings.Contains(robots, line+"\n") {
 			t.Errorf("robots.txt is missing %q:\n%s", line, robots)
 		}
+	}
+	if strings.Contains(robots, "/test.html") {
+		t.Errorf("robots.txt should not mention the removed test page:\n%s", robots)
 	}
 	if !strings.HasPrefix(robots, "User-agent: *\n") {
 		t.Errorf("robots.txt should start with the User-agent line:\n%s", robots)

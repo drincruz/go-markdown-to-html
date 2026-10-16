@@ -18,7 +18,6 @@ cp markdown/favicon-32x32.png dist/
 cp markdown/favicon.ico dist/
 cp markdown/site.webmanifest dist/
 
-to_html markdown/test.markdown 'This is a title' 'And a subtitle' dist/test.html
 to_html markdown/error.markdown 'Error' 'Uh-oh, something went wrong' dist/error.html
 to_html markdown/about.markdown 'About Me' 'So who am I?' dist/about.html
 # Write every post listed in the CCYY.json files
