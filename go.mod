@@ -4,5 +4,5 @@ go 1.26.0
 
 require (
 	github.com/gomarkdown/markdown v0.0.0-20260923180740-94fc73f6b1a3
-	golang.org/x/net v0.59.0
+	golang.org/x/net v0.61.0
 )
